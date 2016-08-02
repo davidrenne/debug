@@ -64,7 +64,7 @@ func Format(value interface{}) string {
 	return FormatSkip(2, value)
 }
 
-func FormatStruct(value interface{}) string {
+func FormatStruct(value interface{}) {
 	Logger.Println(fmt.Printf("%+v\n", value))
 }
 
