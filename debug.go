@@ -64,6 +64,10 @@ func Format(value interface{}) string {
 	return FormatSkip(2, value)
 }
 
+func FormatStruct(value interface{}) string {
+	Logger.Println(fmt.Printf("%+v\n", value))
+}
+
 func Dump(values ...interface{}) {
 	if Logger != nil {
 		for _, value := range values {
