@@ -76,7 +76,7 @@ func Dump(values ...interface{}) {
 func GetDump(values ...interface{}) string { 
 	var buffer bytes.Buffer
 	for _, value := range values {
-		buffer.WriteString(fmt.Printf("%+v\n", value))
+		buffer.WriteString(fmt.Sprintf("%+v\n", value))
 	} 
 	return buffer.String()
 }
