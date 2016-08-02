@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"bytes"
 	"runtime"
 	"runtime/debug"
 )
@@ -63,18 +64,21 @@ func FormatSkip(skip int, value interface{}) string {
 func Format(value interface{}) string {
 	return FormatSkip(2, value)
 }
-
-func FormatStruct(value interface{}) {
-	Logger.Println(fmt.Printf("%+v\n", value))
-}
-
+ 
 func Dump(values ...interface{}) {
 	if Logger != nil {
 		for _, value := range values {
-			Logger.Println(formatValue(value))
+			Logger.Println(fmt.Printf("%+v\n", value))
 		}
-	}
-	Logger.Println(formatCallstack(2))
+	} 
+}
+ 
+func GetDump(values ...interface{}) string { 
+	var buffer bytes.Buffer
+	for _, value := range values {
+		buffer.WriteString(fmt.Printf("%+v\n", value))
+	} 
+	return buffer.String()
 }
 
 func Print(values ...interface{}) {
